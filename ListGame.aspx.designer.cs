@@ -11,25 +11,16 @@ namespace Project_Game_Portal
 {
 
 
-    public partial class _Layout
+    public partial class ListGame
     {
 
         /// <summary>
-        /// form1 control.
+        /// GameDataList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
-
-        /// <summary>
-        /// ContentPlaceHolder_Layout control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder ContentPlaceHolder_Layout;
+        protected global::System.Web.UI.WebControls.DataList GameDataList;
     }
 }
