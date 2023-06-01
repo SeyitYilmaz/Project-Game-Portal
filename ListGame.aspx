@@ -3,26 +3,30 @@
     Inherits="Project_Game_Portal.ListGame" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder_Layout" runat="server">
-    <asp:DataList ID="GameDataList" runat="server"
-        BorderColor="Black"
-        CellPadding="10"
-        CellSpacing="5"
-        RepeatColumns="3" 
-        GridLines="Both"
-        BorderWidth="1px"
-        HorizontalAlign="Right" ShowHeader="False">
 
-        <HeaderStyle BackColor="#aaaadd"></HeaderStyle>
-
-        <AlternatingItemStyle BackColor="Gainsboro"></AlternatingItemStyle>
-
-        <HeaderTemplate>
-            <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
-        </HeaderTemplate>
-
-        <ItemTemplate>
-
-            <asp:Image ID="ProductImage" AlternateText="Product picture" Width="304px" Height="200px"
+    <div class="card-group">
+        <asp:DataList ID="GameDataList" runat="server"
+            CellPadding="10"
+            CellSpacing="5"
+            RepeatColumns="4"
+            GridLines="Both"
+            HorizontalAlign="Right" 
+            ShowHeader="False">
+            <ItemStyle HorizontalAlign="Center" />
+            <ItemTemplate>
+                <div class="card" style="padding:15px">
+                    <img class="card-img-top img-thumbnail" src="Assets/gameimage.jpg" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title"><%#Eval("GameName") %></h5>
+                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                        <p class="card-text">Yayıncı: <%#Eval("GamePublisherID") %></p>
+                        <p class="card-text">Oyun Türü: <%#Eval("GameTypeID") %></p>
+                        <p class="card-text">Oyun Platformu: <%#Eval("GamePlatformID") %></p>
+                        <p class="card-text">Fiyat: <%#Eval("GamePrice") %> TL</p>
+                        <asp:Button CssClass="btn btn-primary btn-block" ID="btnBuy" runat="server" Text="Satin Al" />
+                    </div>
+                </div>
+                <%-- <asp:Image ID="ProductImage" CssClass="card-img-top" AlternateText="Product picture" Width="304px" Height="200px"
                 ImageUrl="~/Assets/gameimage.jpg"
                 runat="server" />
             <hr />
@@ -58,8 +62,12 @@ Disk Alanı: 2 GB boş alan"></asp:Label>
             <hr />
 
             <asp:Button CssClass="btn btn-primary" ID="btnBuy" runat="server" Text="Satin Al" />
-            <br />
-        </ItemTemplate>
-    </asp:DataList>
-    
+            <br />--%>
+            </ItemTemplate>
+            
+        </asp:DataList>
+    </div>
+
+
+
 </asp:Content>
