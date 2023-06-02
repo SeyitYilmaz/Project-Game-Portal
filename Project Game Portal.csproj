@@ -67,7 +67,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\basket.svg" />
     <Content Include="Assets\gameimage.jpg" />
+    <Content Include="css\product-card-style.css" />
     <Content Include="ListGame.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
