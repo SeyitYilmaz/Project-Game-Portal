@@ -11,7 +11,7 @@ namespace Project_Game_Portal
 {
 
 
-    public partial class ListGame
+    public partial class GameList
     {
 
         /// <summary>
