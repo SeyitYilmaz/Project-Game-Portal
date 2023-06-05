@@ -2,7 +2,7 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder_Layout" runat="server">
     <div class="row m-4">
-                <div class="col-md-6 col-md-offset-3">
+                <div class="col-md-6 col-md-offset-3 mx-auto">
                     <h1 class="text-center">Oyun Ekle</h1>
                     <div class="form-group">
                         <label for="txtGameName">Oyun Adı:</label>

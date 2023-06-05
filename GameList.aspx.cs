@@ -13,14 +13,13 @@ namespace Project_Game_Portal
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            SqlCommand command = new SqlCommand("SELECT GameName, GamePublisherID, GamePrice, GamePlatformID, GameTypeID, TypeId,GameTypeName, PublisherID, PublisherName, PlatformID,GamePlatform FROM TableGame INNER JOIN TableGamePlatform on TableGame.GamePlatformID = TableGamePlatform.PlatformID INNER JOIN TableGamePublisher on TableGame.GamePublisherID = TableGamePublisher.PublisherID INNER JOIN TableGameType on TableGame.GameTypeID = TableGameType.TypeID", SqlDatabaseConnection.sqlConnection);
+            SqlCommand command = new SqlCommand("SELECT GameName, GamePublisherID, GamePrice, GamePlatformID, GameTypeID, TypeId,GameTypeName, PublisherID, PublisherName, GameDescription, PlatformID,GamePlatform FROM TableGame INNER JOIN TableGamePlatform on TableGame.GamePlatformID = TableGamePlatform.PlatformID INNER JOIN TableGamePublisher on TableGame.GamePublisherID = TableGamePublisher.PublisherID INNER JOIN TableGameType on TableGame.GameTypeID = TableGameType.TypeID", SqlDatabaseConnection.sqlConnection);
             SqlDatabaseConnection.CheckConnection();
 
             SqlDataReader dr = command.ExecuteReader();
-
             GameDataList.DataSource = dr;
-
             GameDataList.DataBind();
+            dr.Close();
         }
     }
 }

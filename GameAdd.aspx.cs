@@ -44,12 +44,21 @@ namespace Project_Game_Portal
         protected void btnAddGame_Click(object sender, EventArgs e)
         {
             string gameName = txtName.Value.ToString();
-            string gameType = drpGameType.SelectedValue;
-            string gamePublisher = drpGamePublisher.SelectedValue;
-            decimal gamePrice = decimal.Parse(txtGamePrice.Value);
-            string gamePlatform = drpGamePlatform.SelectedValue;
+            int gameType = Convert.ToInt32(drpGameType.SelectedValue);
+            int gamePublisher = Convert.ToInt32(drpGamePublisher.SelectedValue);
+            int gamePrice = int.Parse(txtGamePrice.Value);
+            int gamePlatform = Convert.ToInt32(drpGamePlatform.SelectedValue);
 
-            SqlCommand addCommand = new SqlCommand("", SqlDatabaseConnection.sqlConnection);
+            SqlCommand addCommand = new SqlCommand("INSERT INTO TableGame (GameName, GameTypeID, GamePublisherID,GamePrice,GamePlatformID) values (@pName,@pType,@pPublisher,@pPrice,@pPlatform)", SqlDatabaseConnection.sqlConnection);
+            SqlDatabaseConnection.CheckConnection();
+
+            addCommand.Parameters.AddWithValue("@pName",gameName);
+            addCommand.Parameters.AddWithValue("@pType",gameType);
+            addCommand.Parameters.AddWithValue("@pPublisher",gamePublisher);
+            addCommand.Parameters.AddWithValue("@pPrice",gamePrice);
+            addCommand.Parameters.AddWithValue("@pPlatform",gamePlatform);
+
+            addCommand.ExecuteNonQuery();
 
         }
     }

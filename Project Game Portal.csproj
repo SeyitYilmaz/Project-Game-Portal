@@ -69,12 +69,23 @@
   <ItemGroup>
     <Content Include="Assets\basket.svg" />
     <Content Include="Assets\gameimage.jpg" />
-    <Content Include="css\product-card-style.css" />
+    <Content Include="ContactPage.aspx" />
+    <Content Include="css\Game-List-Size.css" />
+    <Content Include="css\Layout.css" />
+    <Content Include="css\Login-Signup-Form.css" />
     <Content Include="GameAdd.aspx" />
     <Content Include="GameList.aspx" />
+    <Content Include="SignupPage.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ContactPage.aspx.cs">
+      <DependentUpon>ContactPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ContactPage.aspx.designer.cs">
+      <DependentUpon>ContactPage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="GameAdd.aspx.cs">
       <DependentUpon>GameAdd.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -90,7 +101,15 @@
       <DependentUpon>GameList.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Scripts\Sha256Converter.cs" />
     <Compile Include="Scripts\SqlDatabaseConnection.cs" />
+    <Compile Include="SignupPage.aspx.cs">
+      <DependentUpon>SignupPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SignupPage.aspx.designer.cs">
+      <DependentUpon>SignupPage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="_Layout.Master.cs">
       <DependentUpon>_Layout.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
