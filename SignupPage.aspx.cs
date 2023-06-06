@@ -18,14 +18,14 @@ namespace Project_Game_Portal
 
         protected void btnSignUp_Click(object sender, EventArgs e)
         {
-            SqlCommand contactCommand = new SqlCommand("INSERT INTO TableUser (UserName,UserMail,UserPassword) values (@pUserName,@pMail,@pPassword)", SqlDatabaseConnection.sqlConnection);
+            SqlCommand signupCommand = new SqlCommand("INSERT INTO TableUser (UserName,UserMail,UserPassword) values (@pUserName,@pMail,@pPassword)", SqlDatabaseConnection.sqlConnection);
             SqlDatabaseConnection.CheckConnection();
 
             string encPass = Sha256Converter.ComputeSha256Hash(txtPassword.Text);
-            contactCommand.Parameters.AddWithValue("@pUserName", txtName.Text);
-            contactCommand.Parameters.AddWithValue("@pMail", txtMail.Text);
-            contactCommand.Parameters.AddWithValue("@pPassword", encPass);
-            contactCommand.ExecuteNonQuery();
+            signupCommand.Parameters.AddWithValue("@pUserName", txtName.Text);
+            signupCommand.Parameters.AddWithValue("@pMail", txtMail.Text);
+            signupCommand.Parameters.AddWithValue("@pPassword", encPass);
+            signupCommand.ExecuteNonQuery();
 
         }
     }

@@ -1,4 +1,4 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="_Layout.master.cs" Inherits="Project_Game_Portal._Layout" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="_LayoutAdmin.master.cs" Inherits="Project_Game_Portal._LayoutAdmin" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -13,18 +13,12 @@
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
         crossorigin="anonymous" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <style>
-        .btn-custom {
-             background-color: #55A63F;
-             color: #ffffff;
-        }
-    </style>
     <title>Smy Games Oyun Satın Al</title>
 </head>
 
 <body>
     <nav class="navbar navbar-expand-lg navbar-custom">
-        <a class="navbar-brand" href="#">Smy Games</a>
+        <a class="navbar-brand" href="#">Admin Paneli</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -32,21 +26,18 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="GameList.aspx"><i class="fas fa-shopping-cart mr-1"></i>Oyun Satın Al</a>
+                    <a class="nav-link" href="#"><i class="fas fa-gamepad mr-1"></i>Oyunlar</a
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#"><i class="fas fa-info-circle mr-1"></i>Hakkımızda</a>
+                    <a class="nav-link" href="#"><i class="fas fa-comments mr-1"></i>Mesajlar</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="ContactPage.aspx"><i class="fas fa-envelope mr-1"></i>İletişim</a>
+                    <a class="nav-link" href="#"><i class="fas fa-duotone fa-users mr-1"></i>Kullanıcılar</a>
                 </li>
             </ul>
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="#"><i class="fas fa-sign-in-alt mr-1"></i>Giriş Yap</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#"><i class="fas fa-shopping-basket mr-1"></i>Sepetim</a>
+                    <a class="nav-link" href="#"><i class="fas fa-sign-in-alt mr-1"></i>Çıkış Yap</a>
                 </li>
             </ul>
         </div>

@@ -34,6 +34,11 @@
     flex-direction: column;
 }
 
+.buy-button {
+    background-color: #ff6f00;
+    color: #ffffff;
+}
+
 .product img {
     max-height: 150px;
     width: 100%;
@@ -45,6 +50,3 @@
     flex-grow: 1;
 }
 
-.product .buy-button {
-    margin-top: auto;
-}

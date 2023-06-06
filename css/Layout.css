@@ -2,3 +2,9 @@
     position: fixed;
     bottom: 0;
 }
+
+.abs-center-x {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}

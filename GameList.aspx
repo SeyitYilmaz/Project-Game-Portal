@@ -19,7 +19,7 @@
                         <p class="card-text">Oyun Türü: <%#Eval("GameTypeName") %></p>
                         <p class="card-text">Oyun Platformu: <%#Eval("GamePlatform") %></p>
                         <p class="card-text">Fiyat: <%#Eval("GamePrice") %> TL</p>
-                        <asp:Button CssClass="btn btn-primary btn-block buy-button" ID="btnBuy" runat="server" Text="Satin Al" />
+                        <asp:Button CssClass="btn btn-custom btn-primary btn-block" ID="btnBuy" runat="server" Text="Satın Al" />
                     </div>
                 </ItemTemplate>
             </asp:Repeater>
