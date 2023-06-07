@@ -13,32 +13,38 @@ namespace Project_Game_Portal
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Page.IsPostBack == false)
+            if (Convert.ToBoolean(Session["IsUserAdmin"]) == true)
             {
-                SqlCommand sqlCommandPlatform = new SqlCommand("SELECT * FROM TableGamePlatform", SqlDatabaseConnection.sqlConnection);
-                SqlCommand sqlCommandPublisher = new SqlCommand("SELECT * FROM TableGamePublisher", SqlDatabaseConnection.sqlConnection);
-                SqlCommand sqlCommandType = new SqlCommand("SELECT * FROM TableGameType", SqlDatabaseConnection.sqlConnection);
-                SqlDatabaseConnection.CheckConnection();
-                SqlDataReader dr = sqlCommandPlatform.ExecuteReader();
-                drpGamePlatform.DataTextField = "GamePlatform";
-                drpGamePlatform.DataValueField = "PlatformID";
-                drpGamePlatform.DataSource = dr;
-                drpGamePlatform.DataBind();
-                dr.Close();
-                dr = sqlCommandPublisher.ExecuteReader();
-                drpGamePublisher.DataTextField = "PublisherName";
-                drpGamePublisher.DataValueField = "PublisherID";
-                drpGamePublisher.DataSource = dr;
-                drpGamePublisher.DataBind();
-                dr.Close();
-                dr = sqlCommandType.ExecuteReader();
-                drpGameType.DataTextField = "GameTypeName";
-                drpGameType.DataValueField = "TypeID";
-                drpGameType.DataSource = dr;
-                drpGameType.DataBind();
-                dr.Close();
+                if (Page.IsPostBack == false)
+                {
+                    SqlCommand sqlCommandPlatform = new SqlCommand("SELECT * FROM TableGamePlatform", SqlDatabaseConnection.sqlConnection);
+                    SqlCommand sqlCommandPublisher = new SqlCommand("SELECT * FROM TableGamePublisher", SqlDatabaseConnection.sqlConnection);
+                    SqlCommand sqlCommandType = new SqlCommand("SELECT * FROM TableGameType", SqlDatabaseConnection.sqlConnection);
+                    SqlDatabaseConnection.CheckConnection();
+                    SqlDataReader dr = sqlCommandPlatform.ExecuteReader();
+                    drpGamePlatform.DataTextField = "GamePlatform";
+                    drpGamePlatform.DataValueField = "PlatformID";
+                    drpGamePlatform.DataSource = dr;
+                    drpGamePlatform.DataBind();
+                    dr.Close();
+                    dr = sqlCommandPublisher.ExecuteReader();
+                    drpGamePublisher.DataTextField = "PublisherName";
+                    drpGamePublisher.DataValueField = "PublisherID";
+                    drpGamePublisher.DataSource = dr;
+                    drpGamePublisher.DataBind();
+                    dr.Close();
+                    dr = sqlCommandType.ExecuteReader();
+                    drpGameType.DataTextField = "GameTypeName";
+                    drpGameType.DataValueField = "TypeID";
+                    drpGameType.DataSource = dr;
+                    drpGameType.DataBind();
+                    dr.Close();
+                }
             }
-            
+            else
+            {
+                Response.Redirect("GameList.aspx");
+            }
 
         }
         protected void btnAddGame_Click(object sender, EventArgs e)
@@ -52,11 +58,11 @@ namespace Project_Game_Portal
             SqlCommand addCommand = new SqlCommand("INSERT INTO TableGame (GameName, GameTypeID, GamePublisherID,GamePrice,GamePlatformID) values (@pName,@pType,@pPublisher,@pPrice,@pPlatform)", SqlDatabaseConnection.sqlConnection);
             SqlDatabaseConnection.CheckConnection();
 
-            addCommand.Parameters.AddWithValue("@pName",gameName);
-            addCommand.Parameters.AddWithValue("@pType",gameType);
-            addCommand.Parameters.AddWithValue("@pPublisher",gamePublisher);
-            addCommand.Parameters.AddWithValue("@pPrice",gamePrice);
-            addCommand.Parameters.AddWithValue("@pPlatform",gamePlatform);
+            addCommand.Parameters.AddWithValue("@pName", gameName);
+            addCommand.Parameters.AddWithValue("@pType", gameType);
+            addCommand.Parameters.AddWithValue("@pPublisher", gamePublisher);
+            addCommand.Parameters.AddWithValue("@pPrice", gamePrice);
+            addCommand.Parameters.AddWithValue("@pPlatform", gamePlatform);
 
             addCommand.ExecuteNonQuery();
 

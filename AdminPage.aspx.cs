@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Project_Game_Portal.Scripts;
+using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -11,7 +13,24 @@ namespace Project_Game_Portal
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Convert.ToBoolean(Session["IsUserAdmin"]) == true)
+            {
+                if (Page.IsPostBack == false)
+                {
+                    SqlCommand command = new SqlCommand("SELECT GameID, GameName, GamePublisherID, GamePrice, GamePlatformID, GameTypeID, TypeId,GameTypeName, PublisherID, PublisherName, GameDescription, PlatformID,GamePlatform FROM TableGame INNER JOIN TableGamePlatform on TableGame.GamePlatformID = TableGamePlatform.PlatformID INNER JOIN TableGamePublisher on TableGame.GamePublisherID = TableGamePublisher.PublisherID INNER JOIN TableGameType on TableGame.GameTypeID = TableGameType.TypeID", SqlDatabaseConnection.sqlConnection);
+                    SqlDatabaseConnection.CheckConnection();
 
+                    SqlDataReader dr = command.ExecuteReader();
+
+                    gameRepeater.DataSource = dr;
+                    gameRepeater.DataBind();
+                    dr.Close();
+                }
+            }
+            else
+            {
+                Response.Redirect("GameList.aspx");
+            }
         }
     }
 }

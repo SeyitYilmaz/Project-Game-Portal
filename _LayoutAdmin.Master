@@ -26,18 +26,18 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="#"><i class="fas fa-gamepad mr-1"></i>Oyunlar</a
+                    <a class="nav-link" href="AdminPage.aspx"><i class="fas fa-gamepad mr-1"></i>Oyunlar</a
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#"><i class="fas fa-comments mr-1"></i>Mesajlar</a>
+                    <a class="nav-link" href="MessagesPage.aspx"><i class="fas fa-comments mr-1"></i>Mesajlar</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#"><i class="fas fa-duotone fa-users mr-1"></i>Kullanıcılar</a>
+                    <a class="nav-link" href="Users.aspx"><i class="fas fa-duotone fa-users mr-1"></i>Kullanıcılar</a>
                 </li>
             </ul>
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="#"><i class="fas fa-sign-in-alt mr-1"></i>Çıkış Yap</a>
+                    <a class="nav-link" href="Logout.aspx"><i class="fas fa-sign-in-alt mr-1"></i>Çıkış Yap</a>
                 </li>
             </ul>
         </div>

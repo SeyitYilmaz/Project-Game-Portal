@@ -1,9 +1,9 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/_LayoutAdmin.Master" AutoEventWireup="true" CodeBehind="AdminPage.aspx.cs" Inherits="Project_Game_Portal.AdminPage" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/_LayoutAdmin.Master" AutoEventWireup="true" CodeBehind="Users.aspx.cs" Inherits="Project_Game_Portal.Users" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder_Layout" runat="server">
     <div class="container">
         <h1>Veriler</h1>
-        <asp:Repeater ID="gameRepeater" runat="server">
+        <asp:Repeater ID="gameRepeater" runat="server" OnItemDataBound="gameRepeater_ItemDataBound">
             <HeaderTemplate>
                 <table class="table table-striped">
                     <thead>
@@ -11,21 +11,17 @@
                             <th>Oyun ID</th>
                             <th>Oyun Adı</th>
                             <th>Oyun Fiyatı</th>
-                            <th>Düzenle</th>
-                            <th>Sil</th>
+                            <th>Admin</th>
                         </tr>
                     </thead>
                     <tbody>
             </HeaderTemplate>
             <ItemTemplate>
                 <tr>
-                    <td><%# Eval("GameID") %></td>
-                    <td><%# Eval("GameName") %></td>
-                    <td><%# Eval("GamePrice") %>TL</td>
-                    <td>
-                        <asp:Button CssClass="btn btn-warning btn-block" ID="btnDuzenle" runat="server" Text="Düzenle" /></td>
-                    <td>
-                        <asp:Button CssClass="btn btn-danger btn-block" ID="btnSil" runat="server" Text="Sil" /></td>
+                    <td><%# Eval("UserID") %></td>
+                    <td><%# Eval("UserName") %></td>
+                    <td><%# Eval("UserMail") %></td>
+                    <td><asp:CheckBox ID="adminCheckBox" runat="server" Text="Admin"/></td>
                 </tr>
             </ItemTemplate>
             <FooterTemplate>

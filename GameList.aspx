@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/_Layout.Master" AutoEventWireup="true" CodeBehind="GameList.aspx.cs" Inherits="Project_Game_Portal.GameList" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/_Layout.Master" AutoEventWireup="true" CodeBehind="GameList.aspx.cs" Inherits="Project_Game_Portal.GameList" EnableEventValidation="true" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder_Layout" runat="server">
     <div class="container">
@@ -15,11 +15,12 @@
                             <p class="card-text"><%#Eval("GameDescription") %></p>
                         </div>
                         <br />
+                        <p class="card-text">Oyun ID: <i id="txtGameID"><%#Eval("GameID")%></i></p>
                         <p class="card-text">Yayıncı: <%#Eval("PublisherName") %></p>
                         <p class="card-text">Oyun Türü: <%#Eval("GameTypeName") %></p>
                         <p class="card-text">Oyun Platformu: <%#Eval("GamePlatform") %></p>
                         <p class="card-text">Fiyat: <%#Eval("GamePrice") %> TL</p>
-                        <asp:Button CssClass="btn btn-custom btn-primary btn-block" ID="btnBuy" runat="server" Text="Satın Al" />
+                        <asp:Button CssClass="btn btn-custom btn-primary btn-block" ID="btnBuy" OnClick="btnBuy_Click" runat="server" Text="Satın Al" />
                     </div>
                 </ItemTemplate>
             </asp:Repeater>

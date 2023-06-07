@@ -13,16 +13,23 @@ namespace Project_Game_Portal
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Page.IsPostBack == false)
+            if (Convert.ToBoolean(Session["IsUserAdmin"]) == true)
             {
-                SqlCommand command = new SqlCommand("SELECT ContactID, ContactMessage, ContactMail, ContactUsername FROM TableContact", SqlDatabaseConnection.sqlConnection);
-                SqlDatabaseConnection.CheckConnection();
+                if (Page.IsPostBack == false)
+                {
+                    SqlCommand command = new SqlCommand("SELECT ContactID, ContactMessage, ContactMail, ContactUsername FROM TableContact", SqlDatabaseConnection.sqlConnection);
+                    SqlDatabaseConnection.CheckConnection();
 
-                SqlDataReader dr = command.ExecuteReader();
+                    SqlDataReader dr = command.ExecuteReader();
 
-                messageRepeater.DataSource = dr;
-                messageRepeater.DataBind();
-                dr.Close();
+                    messageRepeater.DataSource = dr;
+                    messageRepeater.DataBind();
+                    dr.Close();
+                }
+            }
+            else
+            {
+                Response.Redirect("GameList.aspx");
             }
         }
     }

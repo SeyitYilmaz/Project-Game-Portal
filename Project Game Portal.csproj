@@ -67,7 +67,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="AdminGameList.aspx" />
+    <Content Include="AboutUs.aspx" />
     <Content Include="AdminPage.aspx" />
     <Content Include="Assets\basket.svg" />
     <Content Include="Assets\gameimage.jpg" />
@@ -79,17 +79,20 @@
     <Content Include="GameAdd.aspx" />
     <Content Include="GameList.aspx" />
     <Content Include="LoginPage.aspx" />
+    <Content Include="Logout.aspx" />
     <Content Include="MessagesPage.aspx" />
+    <Content Include="ShoppingCart.aspx" />
     <Content Include="SignupPage.aspx" />
+    <Content Include="Users.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AdminGameList.aspx.cs">
-      <DependentUpon>AdminGameList.aspx</DependentUpon>
+    <Compile Include="AboutUs.aspx.cs">
+      <DependentUpon>AboutUs.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="AdminGameList.aspx.designer.cs">
-      <DependentUpon>AdminGameList.aspx</DependentUpon>
+    <Compile Include="AboutUs.aspx.designer.cs">
+      <DependentUpon>AboutUs.aspx</DependentUpon>
     </Compile>
     <Compile Include="AdminPage.aspx.cs">
       <DependentUpon>AdminPage.aspx</DependentUpon>
@@ -126,6 +129,13 @@
     <Compile Include="LoginPage.aspx.designer.cs">
       <DependentUpon>LoginPage.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Logout.aspx.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Logout.aspx.designer.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
+    </Compile>
     <Compile Include="MessagesPage.aspx.cs">
       <DependentUpon>MessagesPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -136,12 +146,26 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Scripts\Sha256Converter.cs" />
     <Compile Include="Scripts\SqlDatabaseConnection.cs" />
+    <Compile Include="ShoppingCart.aspx.cs">
+      <DependentUpon>ShoppingCart.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ShoppingCart.aspx.designer.cs">
+      <DependentUpon>ShoppingCart.aspx</DependentUpon>
+    </Compile>
     <Compile Include="SignupPage.aspx.cs">
       <DependentUpon>SignupPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="SignupPage.aspx.designer.cs">
       <DependentUpon>SignupPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Users.aspx.cs">
+      <DependentUpon>Users.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Users.aspx.designer.cs">
+      <DependentUpon>Users.aspx</DependentUpon>
     </Compile>
     <Compile Include="_Layout.Master.cs">
       <DependentUpon>_Layout.Master</DependentUpon>

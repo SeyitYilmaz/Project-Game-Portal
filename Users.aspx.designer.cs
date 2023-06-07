@@ -11,7 +11,7 @@ namespace Project_Game_Portal
 {
 
 
-    public partial class AdminGameList
+    public partial class Users
     {
 
         /// <summary>

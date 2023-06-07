@@ -11,16 +11,16 @@ namespace Project_Game_Portal
 {
 
 
-    public partial class AdminPage
+    public partial class ShoppingCart
     {
 
         /// <summary>
-        /// gameRepeater control.
+        /// messageRepeater control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater gameRepeater;
+        protected global::System.Web.UI.WebControls.Repeater messageRepeater;
     }
 }
