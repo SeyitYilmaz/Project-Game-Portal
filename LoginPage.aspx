@@ -14,6 +14,9 @@
                     <asp:TextBox ID="txtPassword" TextMode="Password" CssClass="form-control" runat="server" placeholder="Şifrenizi girin"></asp:TextBox>
                 </div>
                 <asp:Button ID="btnSignin" runat="server" Text="Oturum Aç" CssClass="btn btn-primary" OnClick="btnSignin_Click" />
+                <div class="form-group mt-3">
+                    <asp:HyperLink ID="lnkSignup" runat="server" Text="Hesabınız yok mu? Hesap Oluştur" NavigateUrl="SignupPage.aspx"></asp:HyperLink>
+                </div>
             </div>
         </div>
     </div>

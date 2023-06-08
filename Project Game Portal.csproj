@@ -83,6 +83,7 @@
     <Content Include="MessagesPage.aspx" />
     <Content Include="ShoppingCart.aspx" />
     <Content Include="SignupPage.aspx" />
+    <Content Include="UpdateGame.aspx" />
     <Content Include="Users.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -159,6 +160,13 @@
     </Compile>
     <Compile Include="SignupPage.aspx.designer.cs">
       <DependentUpon>SignupPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UpdateGame.aspx.cs">
+      <DependentUpon>UpdateGame.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UpdateGame.aspx.designer.cs">
+      <DependentUpon>UpdateGame.aspx</DependentUpon>
     </Compile>
     <Compile Include="Users.aspx.cs">
       <DependentUpon>Users.aspx</DependentUpon>

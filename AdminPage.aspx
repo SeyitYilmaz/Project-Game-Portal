@@ -20,12 +20,12 @@
             <ItemTemplate>
                 <tr>
                     <td><%# Eval("GameID") %></td>
-                    <td><%# Eval("GameName") %></td>
+                    <td id="GameName" runat="server"><%# Eval("GameName") %></td>
                     <td><%# Eval("GamePrice") %>TL</td>
                     <td>
-                        <asp:Button CssClass="btn btn-warning btn-block" ID="btnDuzenle" runat="server" Text="Düzenle" /></td>
+                        <asp:Button CssClass="btn btn-warning btn-block" ID="btnDuzenle" runat="server" Text="Düzenle" OnClick="btnDuzenle_Click"/></td>
                     <td>
-                        <asp:Button CssClass="btn btn-danger btn-block" ID="btnSil" runat="server" Text="Sil" /></td>
+                        <asp:Button CssClass="btn btn-danger btn-block" ID="btnSil" runat="server" OnClick="btnSil_Click" Text="Sil" /></td>
                 </tr>
             </ItemTemplate>
             <FooterTemplate>

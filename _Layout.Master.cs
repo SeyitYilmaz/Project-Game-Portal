@@ -12,16 +12,18 @@ namespace Project_Game_Portal
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            HtmlGenericControl icon = (HtmlGenericControl)logText.FindControl("iconText"); ;
+            adminLink.Visible = false;
             if (HttpContext.Current.User.Identity.IsAuthenticated)
             {
-                //icon.Attributes["class"] = "fas fa-sign-in-alt mr-1";
+                if (Convert.ToBoolean(Session["IsUserAdmin"]) == true)
+                {
+                    adminLink.Visible = true;
+                }
                 logText.InnerText = "Çıkış Yap";
                 logText.HRef = "Logout.aspx";
             }
             else
             {
-                //iconText.Attributes["class"] = "fas fa-sign-in-alt mr-1";
                 logText.InnerText = "Giriş Yap";
                 logText.HRef = "LoginPage.aspx";
             }

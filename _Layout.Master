@@ -39,7 +39,7 @@
 
 <body>
     <nav class="navbar navbar-expand-lg navbar-custom">
-        <a class="navbar-brand" href="#">Smy Games</a>
+        <a class="navbar-brand" href="GameList.aspx">Smy Games</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -58,10 +58,13 @@
             </ul>
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" id="logText" href="LoginPage.aspx" runat="server"><i id="iconText" class="fas fa-sign-in-alt mr-1" runat="server"></i></a>
+                    <a class="nav-link" id="logText" href="LoginPage.aspx" runat="server"><i class="fas fa-sign-in-alt mr-1"></i></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#"><i class="fas fa-shopping-basket mr-1"></i>Sepetim</a>
+                    <a class="nav-link" id="adminLink" href="AdminPage.aspx" runat="server">Admin Paneli</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="ShoppingCart.aspx"><i class="fas fa-shopping-basket mr-1"></i>Sepetim</a>
                 </li>
             </ul>
         </div>

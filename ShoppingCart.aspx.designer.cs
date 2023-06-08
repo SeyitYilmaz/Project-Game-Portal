@@ -15,12 +15,30 @@ namespace Project_Game_Portal
     {
 
         /// <summary>
-        /// messageRepeater control.
+        /// cartRepeater control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater messageRepeater;
+        protected global::System.Web.UI.WebControls.Repeater cartRepeater;
+
+        /// <summary>
+        /// totalPriceText control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl totalPriceText;
+
+        /// <summary>
+        /// btnSiparisTamamla control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnSiparisTamamla;
     }
 }

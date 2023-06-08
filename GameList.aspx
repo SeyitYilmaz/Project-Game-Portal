@@ -10,12 +10,12 @@
                 <ItemTemplate>
                     <div class="product">
                         <img class="card-img-top img-thumbnail" src="Assets/gameimage.jpg" alt="Card image cap">
-                        <h5 class="card-title"><%#Eval("GameName") %></h5>
+                        <asp:Label ID="txtGameName" runat="server" Text='<%# Eval("GameName") %>'></asp:Label>
                         <div class="description">
                             <p class="card-text"><%#Eval("GameDescription") %></p>
                         </div>
                         <br />
-                        <p class="card-text">Oyun ID: <i id="txtGameID"><%#Eval("GameID")%></i></p>
+                        <p class="card-text">Oyun ID:<%#Eval("GameID")%></i></p>
                         <p class="card-text">Yayıncı: <%#Eval("PublisherName") %></p>
                         <p class="card-text">Oyun Türü: <%#Eval("GameTypeName") %></p>
                         <p class="card-text">Oyun Platformu: <%#Eval("GamePlatform") %></p>

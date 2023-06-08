@@ -5,6 +5,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
+using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 
 namespace Project_Game_Portal
@@ -31,6 +32,39 @@ namespace Project_Game_Portal
             {
                 Response.Redirect("GameList.aspx");
             }
+        }
+
+        protected void btnDuzenle_Click(object sender, EventArgs e)
+        {
+            Button btn = (Button)sender;
+            RepeaterItem repeaterItem = (RepeaterItem)btn.NamingContainer;
+            HtmlTableCell cellGameName = (HtmlTableCell)repeaterItem.FindControl("GameName");
+            SqlCommand command = new SqlCommand("SELECT GameID FROM TableGame WHERE GameName = @pGameName", SqlDatabaseConnection.sqlConnection);
+            SqlDatabaseConnection.CheckConnection();
+            command.Parameters.AddWithValue("@pGameName", cellGameName.InnerText);
+            int gameID = (int)command.ExecuteScalar();
+            command.Dispose();
+            Response.Redirect("UpdateGame.aspx?gameID=" + gameID.ToString());
+        }
+
+        protected void btnSil_Click(object sender, EventArgs e)
+        {
+            Button btn = (Button)sender;
+            RepeaterItem repeaterItem = (RepeaterItem)btn.NamingContainer;
+            HtmlTableCell cellGameName = (HtmlTableCell)repeaterItem.FindControl("GameName");
+            SqlCommand command = new SqlCommand("DELETE FROM TableGame WHERE GameName = @pGameName", SqlDatabaseConnection.sqlConnection);
+            SqlDatabaseConnection.CheckConnection();
+            command.Parameters.AddWithValue("@pGameName", cellGameName.InnerText);
+            int affectedRows = command.ExecuteNonQuery();
+            if (affectedRows > 0)
+            {
+                Response.Write("Veri güncellendi.");
+            }
+            else
+            {
+                Response.Write("Veri güncelleme işlemi sırasında bir hata oluştu.");
+            }
+            Response.Redirect("AdminPage.aspx");
         }
     }
 }

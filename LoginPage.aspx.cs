@@ -62,7 +62,7 @@ namespace Project_Game_Portal
             {
                 Response.Write("Mail Adresi veya Sifre Hatali");
             }
-            //loginCommand.ExecuteNonQuery();
+
         }
     }
 }

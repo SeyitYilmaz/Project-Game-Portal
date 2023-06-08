@@ -12,46 +12,61 @@ namespace Project_Game_Portal
 {
     public partial class GameList : System.Web.UI.Page
     {
+        protected List<string> ButtonUniqueIDs = new List<string>();
         protected void Page_Load(object sender, EventArgs e)
         {
-            SqlCommand command = new SqlCommand("SELECT GameID, GameName, GamePublisherID, GamePrice, GamePlatformID, GameTypeID, TypeId,GameTypeName, PublisherID, PublisherName, GameDescription, PlatformID,GamePlatform FROM TableGame INNER JOIN TableGamePlatform on TableGame.GamePlatformID = TableGamePlatform.PlatformID INNER JOIN TableGamePublisher on TableGame.GamePublisherID = TableGamePublisher.PublisherID INNER JOIN TableGameType on TableGame.GameTypeID = TableGameType.TypeID", SqlDatabaseConnection.sqlConnection);
-            SqlDatabaseConnection.CheckConnection();
+            if (Page.IsPostBack == false)
+            {
+                SqlCommand command = new SqlCommand("SELECT GameID, GameName, GamePublisherID, GamePrice, GamePlatformID, GameTypeID, TypeId,GameTypeName, PublisherID, PublisherName, GameDescription, PlatformID,GamePlatform FROM TableGame INNER JOIN TableGamePlatform on TableGame.GamePlatformID = TableGamePlatform.PlatformID INNER JOIN TableGamePublisher on TableGame.GamePublisherID = TableGamePublisher.PublisherID INNER JOIN TableGameType on TableGame.GameTypeID = TableGameType.TypeID", SqlDatabaseConnection.sqlConnection);
+                SqlDatabaseConnection.CheckConnection();
 
-            SqlDataReader dr = command.ExecuteReader();
-            GameDataList.DataSource = dr;
-            GameDataList.DataBind();
-            dr.Close();
+                SqlDataReader dr = command.ExecuteReader();
+                GameDataList.DataSource = dr;
+                GameDataList.DataBind();
+                dr.Close();
+            }
         }
+
 
         protected void btnBuy_Click(object sender, EventArgs e)
         {
-            Button btnBuy = (Button)sender; // Tıklanan butonu al
+            SqlCommand idCommand = new SqlCommand("SELECT UserID FROM TableUser WHERE UserName=@pUserName", SqlDatabaseConnection.sqlConnection);
+            SqlCommand getGameIDCommand = new SqlCommand("SELECT GameID FROM TableGame WHERE GameName=@pGameName", SqlDatabaseConnection.sqlConnection);
+            SqlDatabaseConnection.CheckConnection();
+            idCommand.Parameters.AddWithValue("@pUserName", HttpContext.Current.User.Identity.Name);
 
-            RepeaterItem item = (RepeaterItem)btnBuy.NamingContainer; // Butonun bulunduğu RepeaterItem'ı al
+            int userAuthID = Convert.ToInt32(idCommand.ExecuteScalar());
+            Button btnBuy = (Button)sender;
+            RepeaterItem item = (RepeaterItem)btnBuy.NamingContainer;
 
             if (item != null)
             {
-                HtmlGenericControl txtGameID = (HtmlGenericControl)item.FindControl("txtGameID"); // txtGameID idsine sahip i elementini bul
+                Label txtGameName = (Label)item.FindControl("txtGameName");
 
-                if (txtGameID != null)
+                if (txtGameName != null)
                 {
-                    int gameID = Convert.ToInt32(txtGameID.InnerText);
-                    string query = "INSERT INTO TableGamesCart (CartID, GameID) VALUES (@pCartID, @pGameID)";
-                    using (SqlCommand command = new SqlCommand(query, SqlDatabaseConnection.sqlConnection))
+
+                    SqlCommand checkQuery = new SqlCommand( "SELECT COUNT(*) FROM dbo.TableCart WHERE CartUserID = @pUserID",SqlDatabaseConnection.sqlConnection);
+                    SqlCommand sepetIDCommand = new SqlCommand("SELECT CartID FROM TableCart WHERE CartUserID = @pUserID", SqlDatabaseConnection.sqlConnection);
+                    checkQuery.Parameters.AddWithValue("@pUserID", userAuthID);
+
+                    int existingCount = (int)checkQuery.ExecuteScalar();
+
+                    if (existingCount > 0) { }
+                    else
                     {
-                        string sepetIDQuery = "SELECT CartID FROM TableCart WHERE CartUserID = @pUserID";
-                        using (SqlCommand sepetIDCommand = new SqlCommand(sepetIDQuery, SqlDatabaseConnection.sqlConnection))
-                        {
-                            sepetIDCommand.Parameters.AddWithValue("@pUserID", HttpContext.Current.User.Identity.Name);
-                            int sepetID = Convert.ToInt32(sepetIDCommand.ExecuteScalar());
-                            command.Parameters.AddWithValue("@pCartID", sepetID);
-                        }
-
-                        command.Parameters.AddWithValue("@pGameID", gameID);
-
-                        command.ExecuteNonQuery();
+                        SqlCommand insertToCartCommand = new SqlCommand("INSERT INTO TableCart (CartUserID) VALUES (@pUserID)", SqlDatabaseConnection.sqlConnection);
+                        insertToCartCommand.Parameters.AddWithValue("@pUserID", userAuthID);
+                        insertToCartCommand.ExecuteNonQuery();
                     }
-
+                    sepetIDCommand.Parameters.AddWithValue("@pUserID", userAuthID);
+                    int sepetID = Convert.ToInt32(sepetIDCommand.ExecuteScalar());
+                    getGameIDCommand.Parameters.AddWithValue("@pGameName", txtGameName.Text);
+                    int gameID = Convert.ToInt32(getGameIDCommand.ExecuteScalar());
+                    SqlCommand insertCommand = new SqlCommand("INSERT INTO TableUserGamesCart (CartID, CartGameID) VALUES (@pCartID, @pGameID)", SqlDatabaseConnection.sqlConnection);
+                    insertCommand.Parameters.AddWithValue("@pGameID", gameID);
+                    insertCommand.Parameters.AddWithValue("@pCartID", sepetID);
+                    insertCommand.ExecuteNonQuery();
                 }
             }
 

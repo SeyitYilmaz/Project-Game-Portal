@@ -18,7 +18,10 @@
                     <label for="txtPassword">Şifreniz:</label>
                     <asp:TextBox ID="txtPassword" TextMode="Password" CssClass="form-control" runat="server" placeholder="Şifrenizi girin"></asp:TextBox>
                 </div>
-                <asp:Button ID="btnSubmit" runat="server" Text="Gönder" CssClass="btn btn-primary" OnClick="btnSignUp_Click" />
+                <asp:Button ID="btnSubmit" runat="server" Text="Kayıt Ol" CssClass="btn btn-primary" OnClick="btnSignUp_Click" />
+                <div class="form-group mt-3">
+                    <asp:HyperLink ID="lnkSignup" runat="server" Text="Hesabın var mı? Giriş Yap" NavigateUrl="LoginPage.aspx"></asp:HyperLink>
+                </div>
             </div>
         </div>
     </div>

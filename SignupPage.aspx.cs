@@ -18,15 +18,21 @@ namespace Project_Game_Portal
 
         protected void btnSignUp_Click(object sender, EventArgs e)
         {
-            SqlCommand signupCommand = new SqlCommand("INSERT INTO TableUser (UserName,UserMail,UserPassword) values (@pUserName,@pMail,@pPassword)", SqlDatabaseConnection.sqlConnection);
-            SqlDatabaseConnection.CheckConnection();
-
-            string encPass = Sha256Converter.ComputeSha256Hash(txtPassword.Text);
-            signupCommand.Parameters.AddWithValue("@pUserName", txtName.Text);
-            signupCommand.Parameters.AddWithValue("@pMail", txtMail.Text);
-            signupCommand.Parameters.AddWithValue("@pPassword", encPass);
-            signupCommand.ExecuteNonQuery();
-
+            try
+            {
+                SqlCommand signupCommand = new SqlCommand("INSERT INTO TableUser (UserName,UserMail,UserPassword) values (@pUserName,@pMail,@pPassword)", SqlDatabaseConnection.sqlConnection);
+                SqlDatabaseConnection.CheckConnection();
+                string encPass = Sha256Converter.ComputeSha256Hash(txtPassword.Text);
+                signupCommand.Parameters.AddWithValue("@pUserName", txtName.Text);
+                signupCommand.Parameters.AddWithValue("@pMail", txtMail.Text);
+                signupCommand.Parameters.AddWithValue("@pPassword", encPass);
+                signupCommand.ExecuteNonQuery();
+                Response.Write("Kayıt Başarılı");
+            }
+            catch (Exception ex)
+            {
+                Response.Write("Kayıt Başarısız Hata: "+ex.Message);
+            }
         }
     }
 }

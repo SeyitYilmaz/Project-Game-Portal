@@ -6,6 +6,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
+using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 
 namespace Project_Game_Portal
@@ -50,6 +51,26 @@ namespace Project_Game_Portal
                     adminCheckBox.Checked = isAdmin == 1;
                 }
             }
+        }
+
+        protected void btnSil_Click(object sender, EventArgs e)
+        {
+            Button btn = (Button)sender;
+            RepeaterItem repeaterItem = (RepeaterItem)btn.NamingContainer;
+            HtmlTableCell cellGameName = (HtmlTableCell)repeaterItem.FindControl("UserID");
+            SqlCommand command = new SqlCommand("DELETE FROM TableUser WHERE UserID = @pUserID", SqlDatabaseConnection.sqlConnection);
+            SqlDatabaseConnection.CheckConnection();
+            command.Parameters.AddWithValue("@pUserID", cellGameName.InnerText);
+            int affectedRows = command.ExecuteNonQuery();
+            if (affectedRows > 0)
+            {
+                Response.Write("Kullanıcı Silindi");
+            }
+            else
+            {
+                Response.Write("Kullanıcı silme işlemi sırasında bir hata oluştu.");
+            }
+            Response.Redirect(Request.RawUrl);
         }
     }
 }
