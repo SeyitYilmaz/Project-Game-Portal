@@ -26,7 +26,7 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="AdminPage.aspx"><i class="fas fa-gamepad mr-1"></i>Oyunlar</a
+                    <a class="nav-link" href="AdminPage.aspx"><i class="fas fa-gamepad mr-1"></i>Oyunlar</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="MessagesPage.aspx"><i class="fas fa-comments mr-1"></i>Mesajlar</a>
@@ -35,7 +35,13 @@
                     <a class="nav-link" href="Users.aspx"><i class="fas fa-duotone fa-users mr-1"></i>Kullanıcılar</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="GameList.aspx">Anasayfa</a>
+                    <a class="nav-link" href="OrdersPage.aspx"><i class="fas fa-truck-loading mr-1"></i>Siparişler</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="GameAdd.aspx"><i class="fas fa-plus mr-1"></i>Oyun Ekle</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="GameList.aspx"><i class="fas fa-home mr-1"></i>Anasayfa</a>
                 </li>
             </ul>
             <ul class="navbar-nav">

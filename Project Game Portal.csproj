@@ -81,6 +81,7 @@
     <Content Include="LoginPage.aspx" />
     <Content Include="Logout.aspx" />
     <Content Include="MessagesPage.aspx" />
+    <Content Include="OrdersPage.aspx" />
     <Content Include="ShoppingCart.aspx" />
     <Content Include="SignupPage.aspx" />
     <Content Include="UpdateGame.aspx" />
@@ -143,6 +144,13 @@
     </Compile>
     <Compile Include="MessagesPage.aspx.designer.cs">
       <DependentUpon>MessagesPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="OrdersPage.aspx.cs">
+      <DependentUpon>OrdersPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="OrdersPage.aspx.designer.cs">
+      <DependentUpon>OrdersPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Scripts\Sha256Converter.cs" />

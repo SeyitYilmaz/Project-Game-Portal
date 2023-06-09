@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/_Layout.Master" AutoEventWireup="true" CodeBehind="GameAdd.aspx.cs" Inherits="Project_Game_Portal.GameAdd" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/_LayoutAdmin.Master" AutoEventWireup="true" CodeBehind="GameAdd.aspx.cs" Inherits="Project_Game_Portal.GameAdd" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder_Layout" runat="server">
     <div class="row m-4">

@@ -47,7 +47,6 @@ namespace Project_Game_Portal
                     {
                         gameID = int.Parse(Request.QueryString["gameID"]);
                         ViewState["gameID"] = gameID;
-                        Response.Write(gameID);
                         SqlCommand getDataCommand = new SqlCommand("SELECT GameID, GameName, GamePublisherID, GamePrice, GamePlatformID, GameTypeID, TypeId,GameTypeName, PublisherID, PublisherName, GameDescription, PlatformID,GamePlatform FROM TableGame INNER JOIN TableGamePlatform on TableGame.GamePlatformID = TableGamePlatform.PlatformID INNER JOIN TableGamePublisher on TableGame.GamePublisherID = TableGamePublisher.PublisherID INNER JOIN TableGameType on TableGame.GameTypeID = TableGameType.TypeID WHERE GameID=@pGameID", SqlDatabaseConnection.sqlConnection);
                         SqlDatabaseConnection.CheckConnection();
                         getDataCommand.Parameters.AddWithValue("@pGameID", gameID);

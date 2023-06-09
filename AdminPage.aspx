@@ -2,7 +2,7 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder_Layout" runat="server">
     <div class="container">
-        <h1>Veriler</h1>
+        <h1>Oyunlar</h1>
         <asp:Repeater ID="gameRepeater" runat="server">
             <HeaderTemplate>
                 <table class="table table-striped">

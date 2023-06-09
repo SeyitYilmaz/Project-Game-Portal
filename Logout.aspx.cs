@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Project_Game_Portal.Scripts;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -12,6 +13,7 @@ namespace Project_Game_Portal
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            SqlDatabaseConnection.Closeconnection();
             Session.Abandon();
             Request.Cookies.Clear();
             FormsAuthentication.SignOut();

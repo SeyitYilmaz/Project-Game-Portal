@@ -12,7 +12,6 @@ namespace Project_Game_Portal
 {
     public partial class GameList : System.Web.UI.Page
     {
-        protected List<string> ButtonUniqueIDs = new List<string>();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Page.IsPostBack == false)
@@ -45,7 +44,6 @@ namespace Project_Game_Portal
 
                 if (txtGameName != null)
                 {
-
                     SqlCommand checkQuery = new SqlCommand( "SELECT COUNT(*) FROM dbo.TableCart WHERE CartUserID = @pUserID",SqlDatabaseConnection.sqlConnection);
                     SqlCommand sepetIDCommand = new SqlCommand("SELECT CartID FROM TableCart WHERE CartUserID = @pUserID", SqlDatabaseConnection.sqlConnection);
                     checkQuery.Parameters.AddWithValue("@pUserID", userAuthID);
